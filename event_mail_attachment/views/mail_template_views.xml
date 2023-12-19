@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="email_template_form_event_mail_attachment">
+            <field name="name">email.template.form.event.mail.attachment</field>
+            <field name="inherit_id" ref="mail.email_template_form" />
+            <field name="model">mail.template</field>
+            <field name="arch" type="xml">
+                <field name="report_template" position="after">
+                    <field name="event_attachment_name_prefix" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="email_template_tree_event_mail_attachment">
+            <field name="name">email.template.tree.event.mail.attachment</field>
+            <field name="inherit_id" ref="mail.email_template_tree" />
+            <field name="model">mail.template</field>
+            <field name="arch" type="xml">
+                <field name="report_name" position="after">
+                    <field name="event_attachment_name_prefix" />
+                </field>               
+            </field>
+        </record>
+
+    </data>
+</odoo>
