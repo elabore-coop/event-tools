@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_mail_attachment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-19 13:32+0000\n"
+"PO-Revision-Date: 2023-12-19 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: event_mail_attachment
+#: model:ir.model.fields,field_description:event_mail_attachment.field_mail_template__event_attachment_name_prefix
+msgid "Attachment name prefix"
+msgstr "Prefixe du nom de la pièce jointe"
+
+#. module: event_mail_attachment
+#: model:ir.model,name:event_mail_attachment.model_mail_template
+msgid "Email Templates"
+msgstr "Modèles d'emails"
+
+#. module: event_mail_attachment
+#: model:ir.model.fields,help:event_mail_attachment.field_mail_template__event_attachment_name_prefix
+msgid ""
+"If there is an attachment in event registration, or in event, with a name "
+"that starts with this name, it will be attached to the mail."
+msgstr ""
