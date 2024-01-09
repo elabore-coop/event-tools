@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="event_type_form_view" model="ir.ui.view">
+        <field name="name">event.type.form</field>
+        <field name="model">event.type</field>        
+        <field eval="7" name="priority"/>
+        <field name="inherit_id" ref="event.view_event_type_form"/>
+        <field name="arch" type="xml">
+            <div name="event_type_title" position="before">
+                <div name="button_box" class="oe_button_box" />
+            </div>
+        </field>
+    </record>
+</odoo>
