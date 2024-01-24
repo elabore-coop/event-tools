@@ -9,9 +9,9 @@ class EventTrack(models.Model):
     calendar_event = fields.Many2one('calendar.event', 'Calendar event')
 
 
-    def get_calendar_event_values(self):
-        self.ensure_one()
-
+    def get_calendar_event_partner_value(self):
+        """Compute list of partner ids for calendar event
+        """
         # compute list of attendees
         partner_ids = []        
 
@@ -21,14 +21,19 @@ class EventTrack(models.Model):
                 
         # add event registration attendees
         partner_ids.extend([registration.partner_id.id for registration in self.event_id.registration_ids if registration.partner_id])
-        
+
+        return partner_ids
+
+
+    def get_calendar_event_values(self):
+        self.ensure_one()        
 
         return {
             'start':self.date, 
             'duration':self.duration,
             'stop':self.date + timedelta(minutes=round((self.duration or 1.0) * 60)),
             'user_id':self.user_id.id, 
-            'partner_ids':[Command.set(partner_ids)], 
+            'partner_ids':[Command.set(self.get_calendar_event_partner_value())], 
             'name':self.event_id.name+' - '+self.name,            
         }
 
