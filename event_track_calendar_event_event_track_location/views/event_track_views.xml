@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>  
+    <record model="ir.ui.view" id="view_event_track_form_inherit_event_track_location_calendar">
+        <field name="name">event.track.form inherit for event track location calendar</field>
+        <field name="model">event.track</field>
+        <field name="inherit_id" ref="website_event_track.view_event_track_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="after">
+                <field name="location_already_in_use" invisible="1" />                
+                <div attrs="{'invisible':[('location_already_in_use','=',False)]}"  class="alert alert-warning mb-0" role="alert">
+                    <strong>Location already in use for this date !</strong><field name="location_already_in_use_message" />
+                </div>
+            </xpath>            
+        </field>
+    </record>
+
+</odoo>
