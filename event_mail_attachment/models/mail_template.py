@@ -20,15 +20,17 @@ class MailTemplate(models.Model):
             #add reports attached to event.registration or event.event from attachment name
             if template.event_attachment_name_prefix:
                 for res_id in template_res_ids:
-                    event_registration = self.env['event.registration'].browse(res_id)                    
-                    attachments = self.env['ir.attachment'].search([
-                        ('res_model','=','event.registration'),
-                        ('res_id','=',res_id), 
-                        ('name','like',template.event_attachment_name_prefix)])
-                    attachments |= self.env['ir.attachment'].search([
-                        ('res_model','=','event.event'),
-                        ('res_id','=',event_registration.event_id.id), 
-                        ('name','like',template.event_attachment_name_prefix)])
+                    event_registration = self.env['event.registration'].browse(res_id)    
+                    attachments = self.env['ir.attachment']
+                    for event_attachment_name_prefix in template.event_attachment_name_prefix.split(","):
+                        attachments |= self.env['ir.attachment'].search([
+                            ('res_model','=','event.registration'),
+                            ('res_id','=',res_id), 
+                            ('name','like',event_attachment_name_prefix)])
+                        attachments |= self.env['ir.attachment'].search([
+                            ('res_model','=','event.event'),
+                            ('res_id','=',event_registration.event_id.id), 
+                            ('name','like',event_attachment_name_prefix)])
                     
                     attachments_res = [(attachment.name, attachment.datas) for attachment in attachments]
                     
