@@ -9,17 +9,17 @@
     "author": "Elabore",
     "website": "https://www.elabore.coop",    
     "category": "",
-    'summary': 'Link event tracks to calendar event',
+    'summary': 'Replace date of event track with list of calendar events',
     'description': """
-Link event tracks to calendar event
+Replace date of event track with list of calendar events
 ----------------------------------------------------
-* Create calendar event on event track creation
-* Update calendar event on event track update
-* Update event track when calendar event updated
+* Create calendar events on event track form
+* Sync calendar event attendees with event track registration
 
 """,
     "depends": ["website_event_track","calendar"],
-    "data": [                
+    "data": [     
+        "views/event_track_views.xml"           
     ],    
     "installable": True,
 }

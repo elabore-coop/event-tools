@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_track_form_ctl_training_customization">
+        <field name="name">event.track.form.ctl.training.customization</field>
+        <field name="inherit_id" ref="website_event_track.view_event_track_form" />        
+        <field name="model">event.track</field>
+        <field name="arch" type="xml">
+            <!--
+                Replace date with calendar events
+            -->
+            <field name="date" position="replace">
+                <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
+                    <tree default_order="start,stop" editable="bottom">
+                        <field name="name" string="Name" invisible="1" />
+                        <field name="start" string="From" />
+                        <field name="stop" string="To" />
+                    </tree>
+                    <form>
+                        <group>
+                            <field name="name" string="Name" />
+                            <field name="start" string="From" />
+                            <field name="stop" string="To" />
+                        </group>
+                    </form>
+                </field>
+            </field>
+        </field>
+    </record>
+</odoo>
