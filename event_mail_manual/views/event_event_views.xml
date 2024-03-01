@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_event_form_event_mail_manual">
+            <field name="name">event.event.form.event.mail.manual</field>
+            <field name="inherit_id" ref="event.view_event_form" />
+            <field name="model">event.event</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='event_mail_ids']/tree/field[@name='mail_state']" position="after">
+                    <button 
+                        name="send" 
+                        type="object" 
+                        icon="fa-bullhorn" 
+                        attrs="{'invisible':[('notification_type','!=','mail_manual')]}" 
+                        confirm="Send mail to all attendees ?" />
+                </xpath>
+                <xpath expr="//field[@name='event_mail_ids']/tree/field[@name='interval_nbr']" position="attributes">
+                    <attribute name="attrs">{'readonly':['|',('interval_unit','=','now'),('notification_type','=','mail_manual')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='event_mail_ids']/tree/field[@name='interval_unit']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('notification_type','=','mail_manual')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='event_mail_ids']/tree/field[@name='interval_type']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('notification_type','=','mail_manual')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
