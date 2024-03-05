@@ -8,22 +8,27 @@
             <!--
                 Replace date with calendar events
             -->
-            <field name="date" position="replace">
-                <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
-                    <tree default_order="start,stop" editable="bottom">
-                        <field name="name" string="Name" invisible="1" />
-                        <field name="start" string="From" />
-                        <field name="stop" string="To" />
-                    </tree>
-                    <form>
-                        <group>
-                            <field name="name" string="Name" />
+            <field name="date" position="replace" />
+            <page name="speaker" position="before">
+                <page name="calendar_events" string="Dates">
+                    <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
+                        <tree default_order="start,stop">
+                            <field name="name" string="Name" invisible="1" />
                             <field name="start" string="From" />
                             <field name="stop" string="To" />
-                        </group>
-                    </form>
-                </field>
-            </field>
+                            <field name="description" />
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="name" string="Name" invisible="True" />
+                                <field name="start" string="From" />
+                                <field name="stop" string="To" />
+                                <field name="description" />
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </page>
         </field>
     </record>
 </odoo>
