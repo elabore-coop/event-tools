@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_track_by_sequence_kanban">
+        <field name="name">event.track.by.sequence.kanban</field>
+        <field name="model">event.track</field>
+        <field name="arch" type="xml">
+            <kanban default_order="sequence" group_create="false" default_group_by="sequence_id" quick_create_view="website_event_track.event_track_view_form_quick_create">
+                <field name="color"/>
+                <field name="partner_id"/>
+                <field name="sequence_id" options="{'create':false}" />
+                <field name="stage_id" options='{"group_by_tooltip": {"description": "Description"}}'/>
+                <field name="website_url"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <field name="legend_blocked"/>
+                <field name="legend_normal"/>
+                <field name="legend_done"/>
+                <templates>
+                    <progressbar field="kanban_state" colors='{"done": "success", "blocked": "danger"}'/>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+
+                                <a role="button" class="dropdown-toggle o-no-caret btn" data-bs-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a role="menuitem" t-att-href="record.website_url.value" class="dropdown-item">View Track</a>
+                                    <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit Track</a></t>
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <h4 class="o_kanban_record_title"><field name="name"/></h4>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <t t-if="duration"><field name="duration" widget="float_time"/> hours</t>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="priority" widget="priority"/>
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="kanban_state" widget="state_selection" groups="base.group_user"/>
+                                        <img t-att-src="kanban_image('res.partner', 'avatar_128', record.partner_id.raw_value)"
+                                            t-att-title="record.partner_id.value" t-att-alt="record.partner_id.value"
+                                            class="oe_kanban_avatar"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_event_track_from_event_kanban">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="act_window_id" ref="website_event_track.action_event_track_from_event"/>
+        <field name="view_id" ref="event_sequence.view_event_track_by_sequence_kanban"/>
+     </record>
+</odoo>

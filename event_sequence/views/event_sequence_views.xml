@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_event_sequence_tree">
+        <field name="name">event.sequence</field>
+        <field name="model">event.sequence</field>        
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="event_sequence_action" model="ir.actions.act_window">
+        <field name="name">Sequences</field>
+        <field name="res_model">event.sequence</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_event_sequence_tree"/>        
+    </record>
+</odoo>

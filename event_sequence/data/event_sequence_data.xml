@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record forcecreate="True" id="event_sequence_1" model="event.sequence">
+        <field name="name">Séquence 1</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_2" model="event.sequence">
+        <field name="name">Séquence 2</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_3" model="event.sequence">
+        <field name="name">Séquence 3</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_4" model="event.sequence">
+        <field name="name">Séquence 4</field>
+        <field name="sequence">4</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_5" model="event.sequence">
+        <field name="name">Séquence 5</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_6" model="event.sequence">
+        <field name="name">Séquence 6</field>
+        <field name="sequence">6</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_7" model="event.sequence">
+        <field name="name">Séquence 7</field>
+        <field name="sequence">7</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_8" model="event.sequence">
+        <field name="name">Séquence 8</field>
+        <field name="sequence">8</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_9" model="event.sequence">
+        <field name="name">Séquence 9</field>
+        <field name="sequence">9</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_10" model="event.sequence">
+        <field name="name">Séquence 10</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_11" model="event.sequence">
+        <field name="name">Séquence 11</field>
+        <field name="sequence">11</field>
+    </record>
+
+    <record forcecreate="True" id="event_sequence_12" model="event.sequence">
+        <field name="name">Séquence 12</field>
+        <field name="sequence">12</field>
+    </record>
+</odoo>
