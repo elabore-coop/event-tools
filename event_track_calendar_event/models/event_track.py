@@ -1,6 +1,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import fields, models, api, Command
 from datetime import timedelta
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class EventTrack(models.Model):
@@ -46,8 +49,10 @@ class EventTrack(models.Model):
     def sync_calendar_event(self):
         """synchronize calendar event values with event track data
         """
+        _logger.warning("sync_calendar_event...")
         for track in self:
             track.calendar_event_ids.write(track.get_calendar_event_values())
+        _logger.warning("sync_calendar_event done !")
 
 
     @api.model_create_multi
