@@ -8,7 +8,8 @@ class EventRegistration(models.Model):
     
     def write(self, vals):
         _logger.warning("call write...")
-        res = super().write(vals)        
+        res = super().write(vals)       
+        _logger.warning("Super Write OK") 
         for registration in self:
             for track in registration.event_id.track_ids:
                 track.sync_calendar_event()
