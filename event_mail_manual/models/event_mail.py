@@ -10,12 +10,11 @@ class EventMail(models.Model):
 
     notification_type = fields.Selection(selection_add=[('mail_manual', 'Mail (manual)')], ondelete={'mail_manual': 'set default'})
 
+
     def _selection_template_model_get_mapping(self):
-        return {
-            'mail': 'mail.template', 
-            'mail_manual': 'mail.template'
-        }
-    
+        return {**super(EventMail, self)._selection_template_model_get_mapping(), 'mail_manual': 'mail.template'}
+
+
     @api.depends('event_id.date_begin', 'event_id.date_end', 'interval_type', 'interval_unit', 'interval_nbr','notification_type')
     def _compute_scheduled_date(self):
         res = super(EventMail, self)._compute_scheduled_date()
@@ -77,3 +76,5 @@ class EventMailRegistration(models.Model):
         done.write({'mail_sent': True})
 
         return res
+
+
