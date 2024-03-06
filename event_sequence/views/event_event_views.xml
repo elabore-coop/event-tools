@@ -10,8 +10,8 @@
                 <field name="sequence_number" />
             </label>
             <h1 position="after">
-                <label for="current_sequence_id" string="Séquence en cours"/>
-                <h1><field class="text-break" name="current_sequence_id" /></h1>
+                <label for="current_sequence_id" string="Current sequence"/>
+                <h4><field class="text-break" name="current_sequence_id" style="width:150px;" /></h4>
             </h1>
         </field>
     </record>

@@ -6,7 +6,7 @@ class EventTrack(models.Model):
     _inherit = "event.track"
 
     sequence_id = fields.Many2one('event.sequence', 'Sequence', group_expand='_read_group_stage_ids')
-    sequence = fields.Integer('Sequence')
+    sequence = fields.Integer('Sequence') #for sorting
 
     @api.model_create_multi
     def create(self, vals_list):   

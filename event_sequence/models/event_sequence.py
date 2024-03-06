@@ -6,4 +6,4 @@ class EventSequence(models.Model):
     _name = "event.sequence"
 
     name = fields.Char("name")
-    sequence = fields.Integer("Sequence")
+    sequence = fields.Integer("Sequence") #for sorting
