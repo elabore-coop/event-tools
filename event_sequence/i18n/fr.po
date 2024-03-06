@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* event_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-06 11:11+0000\n"
+"PO-Revision-Date: 2024-03-06 11:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: event_sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_event__current_sequence_id
+msgid "Current sequence"
+msgstr "Séquence en cours"
+
+#. module: event_sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_sequence__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+
+#. module: event_sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_event__sequence_number
+msgid "Number of sequences"
+msgstr "Nombre de séquences"
+
+#. module: event_sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_sequence__sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_track__sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_track__sequence_id
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: event_sequence
+#: model:ir.actions.act_window,name:event_sequence.event_sequence_action
+#: model:ir.ui.menu,name:event_sequence.event_sequence_menu
+msgid "Sequences"
+msgstr "Séquences"
+
+#. module: event_sequence
+#: model_terms:ir.ui.view,arch_db:event_sequence.view_event_form_event_sequence
+msgid "Current sequence"
+msgstr "Séquence en cours"
+
+
+#. module: event_sequence
+#: model_terms:ir.ui.view,arch_db:event_sequence.view_event_track_by_sequence_kanban
+msgid "hours"
+msgstr "heures"
+
+#. module: event_sequence
+#: model:ir.model.fields,field_description:event_sequence.field_event_sequence__name
+msgid "name"
+msgstr "nom"
