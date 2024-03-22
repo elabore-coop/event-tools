@@ -5,7 +5,7 @@ from odoo import fields, models, api
 class EventTrackLocation(models.Model):
     _inherit = 'event.track.location'
 
-    partner_id = fields.Many2one('res.partner', 'Address')
+    partner_id = fields.Many2one('res.partner', 'Address', domain="[('is_company','=',True)]")
     
     def write(self, vals):
         """update calendar events related to event tracks if partner change

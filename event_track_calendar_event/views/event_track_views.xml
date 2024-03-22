@@ -21,8 +21,12 @@
                         <form>
                             <group>
                                 <field name="name" string="Name" invisible="True" />
-                                <field name="start" string="From" />
-                                <field name="stop" string="To" />
+                                <label for="start" string="Date"/>
+                                <div class="o_row">
+                                    <field name="start" widget="daterange" nolabel="1" class="oe_inline" options="{'related_end_date': 'stop'}"/>
+                                    <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                    <field name="stop" widget="daterange" nolabel="1" class="oe_inline" options="{'related_start_date': 'start'}"/>
+                                </div>
                                 <field name="description" />
                             </group>
                         </form>
