@@ -9,9 +9,9 @@
     "author": "Elabore",
     "website": "https://www.elabore.coop",
     "category": "",
-    "depends": ["event"],
+    "depends": ["website_event_track"],
     "data": [        
-        'views/event_event_views.xml',         
+        'views/event_track_views.xml',         
     ],    
     "installable": True,
 }
