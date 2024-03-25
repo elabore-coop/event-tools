@@ -9,7 +9,7 @@ class EventTrack(models.Model):
         """Add speaker ids to calendar event partners
         """
         res = super(EventTrack, self).get_calendar_event_partner_value()
-        res.extend(self.event_id.speaker_ids.ids)
+        res.extend(self.speaker_ids.ids)
         return res
 
 
