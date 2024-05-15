@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+
+    <record id="event_configurator_view_form_event_sale_configurator_optionnal" model="ir.ui.view">
+        <field name="name">event.configurator.view.form.event.sale.configurator.optionnal</field>
+        <field name="model">event.event.configurator</field>
+        <field name="inherit_id" ref="event_sale.event_configurator_view_form" />
+        <field name="arch" type="xml">
+            <field name="event_id" position="attributes">
+                <attribute name="required">0</attribute>                
+            </field>
+            <field name="event_ticket_id" position="attributes">
+                <attribute name="required">0</attribute>                
+            </field>            
+        </field>
+    </record>
+
+</odoo>
