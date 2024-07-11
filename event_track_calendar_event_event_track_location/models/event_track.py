@@ -17,15 +17,24 @@ class EventTrack(models.Model):
             location_already_in_use = False
             location_already_in_use_message = ""
 
+            already_found_other_calendar_event_ids = []
+
             for calendar_event in track.calendar_event_ids:
                 if track.location_id and calendar_event.start:
 
                     #search if other calendar event exists for same day on same location
                     search_other_calendar_events = [('event_track_id.location_id','=',track.location_id.id),('start','>=',calendar_event.start.replace(hour=0,minute=0)),('start','<=',calendar_event.start.replace(hour=23,minute=59))]
-                                        
+
+                    #search only on other event tracks      
                     if track.id or track.id.origin:
                         search_other_calendar_events.append(('event_track_id','!=',track.id or track.id.origin))
+
+                    #search calendar events not already founded
+                    if already_found_other_calendar_event_ids:
+                        search_other_calendar_events.append(('id','not in',already_found_other_calendar_event_ids))
+                    
                     other_calendar_events = self.env["calendar.event"].search(search_other_calendar_events)
+                    already_found_other_calendar_event_ids.extend(other_calendar_events.ids)
 
                     if other_calendar_events:
                         location_already_in_use = True                    
