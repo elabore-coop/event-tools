@@ -6,14 +6,11 @@ _logger = logging.getLogger(__name__)
 class EventRegistration(models.Model):
     _inherit = "event.registration"
     
-    def write(self, vals):
-        _logger.warning("call write...")
-        res = super(EventRegistration,self).write(vals)       
-        _logger.warning("Super Write OK") 
+    def write(self, vals):        
+        res = super(EventRegistration,self).write(vals)               
         for registration in self:
             for track in registration.event_id.track_ids:
-                track.sync_calendar_event()
-        _logger.warning("called !")
+                track.sync_calendar_event()        
         return res
 
     @api.model_create_multi

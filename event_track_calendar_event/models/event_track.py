@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 class EventTrack(models.Model):
     _inherit = "event.track"
 
-    calendar_event_ids = fields.One2many('calendar.event', 'event_track_id', 'Days')
+    calendar_event_ids = fields.One2many('calendar.event', 'event_track_id', 'Time slot', copy=True)
     date = fields.Datetime(compute="_compute_date")
 
     def _compute_date(self):
