@@ -51,7 +51,7 @@ class EventTrack(models.Model):
         """
         _logger.warning("sync_calendar_event...")
         for track in self:
-            track.calendar_event_ids.write(track.get_calendar_event_values())
+            track.calendar_event_ids.with_context(no_mail_to_attendees=True).write(track.get_calendar_event_values())
         _logger.warning("sync_calendar_event done !")
 
 
