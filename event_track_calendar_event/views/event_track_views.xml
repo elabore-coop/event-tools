@@ -8,7 +8,7 @@
             <!--
                 Replace date with calendar events
             -->
-            <field name="date" position="replace" />
+            <!-- <field name="date" position="replace" /> -->
             <page name="speaker" position="before">
                 <page name="calendar_events" string="Dates">
                     <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
