@@ -9,9 +9,10 @@
     "author": "Elabore",
     "website": "https://www.elabore.coop",    
     "category": "",
-    'summary': 'Event track calendar event adaptation when event_speaker module installed',    
-    "depends": ["event_track_calendar_event","event_speaker"],
-    "data": [                
+    'summary': 'Speaker management in calendar events of event tracks',    
+    "depends": ["event_track_calendar_event"],
+    "data": [              
+        "views/event_track_views.xml"  
     ],    
     "installable": True,
     "auto_install":True
