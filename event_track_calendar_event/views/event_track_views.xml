@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="view_event_track_form_ctl_training_customization">
-        <field name="name">event.track.form.ctl.training.customization</field>
+    <record model="ir.ui.view" id="view_event_track_form_event_track_calendar_event">
+        <field name="name">event.track.form.event.track.calendar.event</field>
         <field name="inherit_id" ref="website_event_track.view_event_track_form" />        
         <field name="model">event.track</field>
         <field name="arch" type="xml">
