@@ -13,5 +13,6 @@ class CalendarEvent(models.Model):
         for event in res:
             if event.event_track_id:
                 event.event_track_id.sync_calendar_event()
+        return res
     
    
