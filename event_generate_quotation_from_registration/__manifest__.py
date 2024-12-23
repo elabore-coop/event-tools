@@ -15,6 +15,8 @@
     "data": [     
         'security/ir.model.access.csv',
         'views/event_registration_views.xml',
+        'views/sale_order_views.xml',
+        'views/account_move_views.xml',
     ],    
     "installable": True,
 }

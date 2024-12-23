@@ -27,11 +27,13 @@ class EventRegistrationFinancier(models.Model):
 
     def get_sale_order_values(self):
         return {
-            'partner_id':self.financier_id.id, 
-            'order_line':[
-                Command.create({
+            'event_registration_id':self.registration_id.id,
+            'partner_id':self.financier_id.id,             
+        }
+    
+    def get_sale_order_line_values(self):
+        return [Command.create({
                     "price_unit": self.amount,
                     "product_id": self.get_product_id()
-                })
-            ]
-        }
+                })]
+    

@@ -8,12 +8,31 @@ class EventRegistration(models.Model):
     
     financier_ids = fields.One2many('event.registration.financier', 'registration_id', string="Financements")
 
+    def name_get(self):
+        result = []
+        for registration in self:
+            if registration.partner_id and registration.event_id:
+                name = f"{registration.partner_id.name} ({registration.event_id.name})"
+                result.append((registration.id, name))
+        return result
+    
+    @api.depends("partner_id", "event_id")
+    def _compute_display_name(self):
+        for registration in self:
+            if registration.partner_id and registration.event_id:
+                registration.display_name = f"{registration.partner_id.name} ({registration.event_id.name})"
+            else:
+                registration.display_name = super(EventRegistration, registration)._compute_display_name()
+
+
 
     def generate_quotation(self):
         for registration in self:
             for financier in registration.financier_ids:
                 if not financier.quotation_id:
-                    sale_order = self.env['sale.order'].create(financier.get_sale_order_values())
+                    so_values = financier.get_sale_order_values()
+                    so_values['order_line'] = financier.get_sale_order_line_values()
+                    sale_order = self.env['sale.order'].create(so_values)
                     financier.quotation_id = sale_order
                 else:
                     order_lines = self.env['sale.order.line'].search([
@@ -22,3 +41,5 @@ class EventRegistration(models.Model):
                     ])
                     if order_lines:
                         order_lines[0].price_unit = financier.amount
+                    financier.quotation_id.write(financier.get_sale_order_values())
+                    

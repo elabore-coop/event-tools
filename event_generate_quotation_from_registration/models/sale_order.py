@@ -6,6 +6,15 @@ _logger = logging.getLogger(__name__)
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    event_registration_id = fields.Many2one('event.registration', string="Stagiaire")
+
+    def _prepare_invoice(self):
+        """Copy event_registration_id to generated invoice
+        """
+        res = super(SaleOrder, self)._prepare_invoice()
+        res["event_registration_id"] = self.event_registration_id.id
+        return res
+
     def linked_to_registration(self):
         return len(self.env['event.registration.financier'].search([('quotation_id','=',self.id)])) > 0
     
