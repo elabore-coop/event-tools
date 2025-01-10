@@ -25,9 +25,13 @@ class EventTrack(models.Model):
         """return default values of calendar events
         """
         return {
-            'partner_ids':[Command.set(self.get_calendar_event_partner_value())], 
+            # due to google calendar unexpected notifications, for the moment we disable attendees of calendar event        
+            # uncomment following line to re-enable
+            #'partner_ids':[Command.set(self.get_calendar_event_partner_value())], 
+            'partner_ids':[Command.set([])], 
             'location':self.location_id.name if self.location_id else '',
-            'user_id':self.user_id.id
+            #'user_id':self.user_id.id, 
+            'privacy':"confidential"
         }
 
     def get_calendar_event_partner_value(self):
@@ -71,3 +75,10 @@ class EventTrack(models.Model):
         res = super().write(vals)
         self.sync_calendar_event()
         return res
+
+
+    def unlink(self):
+        for track in self:
+            for calendar_event in track.calendar_event_ids:
+                calendar_event.unlink()
+        return super(EventTrack, self).unlink()
