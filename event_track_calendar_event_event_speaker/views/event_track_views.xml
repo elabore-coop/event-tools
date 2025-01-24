@@ -6,12 +6,12 @@
         <field name="model">event.track</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='calendar_event_ids']/tree/field[@name='description']" position="after">
-                <field name="speaker_ids" />
+                <field name="speaker_ids" widget="many2many_tags"/>
             </xpath>
 
-            <xpath expr="//field[@name='calendar_event_ids']/form//field[@name='description']" position="after">
+            <!-- <xpath expr="//field[@name='calendar_event_ids']/form//field[@name='description']" position="after">
                 <field name="speaker_ids" />
-            </xpath>
+            </xpath> -->
             
         </field>
     </record>

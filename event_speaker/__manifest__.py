@@ -6,6 +6,7 @@
     "license": "AGPL-3",
     "author": "Elabore",
     "website": "https://www.elabore.coop",
+    'summary': 'Not usefull anymore for CTL',
     "category": "",
     "depends": ["website_event_track"],
     "data": [        

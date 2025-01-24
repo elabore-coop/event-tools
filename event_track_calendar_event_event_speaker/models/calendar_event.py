@@ -6,5 +6,5 @@ class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
     speaker_ids = fields.Many2many(
-        'res.partner', "calendar_event_speaker_rel", "calendar_event_id", "speaker_id", string="Speakers", domain="[('is_company','=',False)]"
+        'res.partner', "calendar_event_speaker_rel", "calendar_event_id", "speaker_id", string="Intervenants", domain="[('is_company','=',False)]"
     )

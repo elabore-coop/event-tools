@@ -10,15 +10,15 @@
             -->
             <!-- <field name="date" position="replace" /> -->
             <page name="speaker" position="before">
-                <page name="calendar_events" string="Dates">
+                <page name="calendar_events" string="Plages horaires">
                     <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
-                        <tree default_order="start,stop">
+                        <tree default_order="start,stop" editable="bottom">
                             <field name="name" string="Name" invisible="1" />
                             <field name="start" string="From" />
                             <field name="stop" string="To" />
                             <field name="description" />
                         </tree>
-                        <form>
+                        <!-- <form>
                             <group>
                                 <field name="name" string="Name" invisible="True" />
                                 <label for="start" string="Date"/>
@@ -29,7 +29,7 @@
                                 </div>
                                 <field name="description" />
                             </group>
-                        </form>
+                        </form> -->
                     </field>
                 </page>
             </page>
