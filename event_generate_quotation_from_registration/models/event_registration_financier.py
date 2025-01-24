@@ -15,6 +15,7 @@ class EventRegistrationFinancier(models.Model):
     registration_id = fields.Many2one('event.registration')
     quotation_id = fields.Many2one('sale.order', string="Devis")
     financier_id = fields.Many2one('res.partner', string="Financeur", required=True)
+    terms = fields.Char('Modalités')
     amount = fields.Monetary('Montant', currency_field="company_currency_id")
 
 

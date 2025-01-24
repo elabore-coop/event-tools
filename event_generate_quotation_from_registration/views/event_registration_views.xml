@@ -11,7 +11,8 @@
                     <field name="financier_ids" nolabel="1" colspan="2">
                         <tree editable="bottom">
                             <field name="financier_id" />
-                            <field name="amount" />
+                            <field name="amount" />      
+                            <field name="terms" />                      
                             <field name="quotation_id" readonly="True" />
                         </tree>
                     </field>
