@@ -5,9 +5,9 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form" />
         <field name="arch" type="xml">
-            <field name="payment_mode_id" position="after">
+            <group name="order_details" position="inside">
                 <field name="event_registration_id" />
-            </field>
+            </group>
         </field>
     </record>
 
