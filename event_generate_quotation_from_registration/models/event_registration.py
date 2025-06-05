@@ -36,8 +36,9 @@ class EventRegistration(models.Model):
                     financier.quotation_id = sale_order
                 else:
                     order_lines = self.env['sale.order.line'].search([
-                        ('order_id','=',financier.quotation_id.id), 
-                        ('product_id','=',financier.get_product_id())
+                        ('order_id','=',financier.quotation_id.id),
+                        ('product_id','=',financier.get_product_id()),
+                        ('state', '!=', 'done'),
                     ])
                     if order_lines:
                         order_lines[0].price_unit = financier.amount
