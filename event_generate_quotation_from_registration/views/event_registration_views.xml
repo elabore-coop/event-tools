@@ -10,9 +10,10 @@
                 <group name="quotation" string="Financement" colspan="1">
                     <field name="financier_ids" nolabel="1" colspan="2">
                         <tree editable="bottom">
-                            <field name="financier_id" />
-                            <field name="amount" />      
-                            <field name="terms" />                      
+			    <field name="state" invisible="1"/>
+			    <field name="financier_id" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
+                            <field name="amount" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}" />
+			    <field name="terms" />
                             <field name="quotation_id" readonly="True" />
                         </tree>
                     </field>
