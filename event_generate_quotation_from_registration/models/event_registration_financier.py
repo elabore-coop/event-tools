@@ -17,6 +17,10 @@ class EventRegistrationFinancier(models.Model):
     financier_id = fields.Many2one('res.partner', string="Financeur", required=True)
     terms = fields.Char('Modalités')
     amount = fields.Monetary('Montant', currency_field="company_currency_id")
+    state = fields.Selection(
+        related='quotation_id.state',
+        string="Order Status",
+        copy=False, store=True, precompute=True)
 
 
     def get_product_id(self):
