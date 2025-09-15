@@ -7,11 +7,11 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",
+    "website": "https://github.com/elabore-coop/event-tools",
     "category": "",
     "depends": ["event"],
-    "data": [        
-        'views/event_type_views.xml',         
-    ],    
+    "data": [
+        "views/event_type_views.xml",
+    ],
     "installable": True,
 }

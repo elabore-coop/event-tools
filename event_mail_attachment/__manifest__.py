@@ -7,18 +7,15 @@
     "version": "16.0.0.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",
-    'summary': 'Event mail attachments',
-    'description': """
+    "website": "https://github.com/elabore-coop/event-tools",
+    "summary": "Event mail attachments",
+    "description": """
 Event mail attachments
 ----------------------------------------------------
 
 """,
     "category": "",
     "depends": ["ctl_training_customization"],
-    "data": [
-        'views/mail_template_views.xml'
-    ],
+    "data": ["views/mail_template_views.xml"],
     "installable": True,
-   
 }

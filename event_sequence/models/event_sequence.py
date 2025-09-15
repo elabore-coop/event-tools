@@ -5,5 +5,5 @@ from odoo import fields, models
 class EventSequence(models.Model):
     _name = "event.sequence"
 
-    name = fields.Char("name")
-    sequence = fields.Integer("Sequence") #for sorting
+    name = fields.Char()
+    sequence = fields.Integer()  # for sorting

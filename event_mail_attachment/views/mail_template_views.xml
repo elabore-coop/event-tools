@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
         <record model="ir.ui.view" id="email_template_form_event_mail_attachment">
@@ -19,7 +19,7 @@
             <field name="arch" type="xml">
                 <field name="report_name" position="after">
                     <field name="event_attachment_name_prefix" />
-                </field>               
+                </field>
             </field>
         </record>
 

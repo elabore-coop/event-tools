@@ -18,6 +18,7 @@ msgstr ""
 
 #. module: event_sequence
 #: model:ir.model.fields,field_description:event_sequence.field_event_event__current_sequence_id
+#: model_terms:ir.ui.view,arch_db:event_sequence.view_event_form_event_sequence
 msgid "Current sequence"
 msgstr "Séquence en cours"
 
@@ -44,12 +45,6 @@ msgstr "Séquence"
 #: model:ir.ui.menu,name:event_sequence.event_sequence_menu
 msgid "Sequences"
 msgstr "Séquences"
-
-#. module: event_sequence
-#: model_terms:ir.ui.view,arch_db:event_sequence.view_event_form_event_sequence
-msgid "Current sequence"
-msgstr "Séquence en cours"
-
 
 #. module: event_sequence
 #: model_terms:ir.ui.view,arch_db:event_sequence.view_event_track_by_sequence_kanban

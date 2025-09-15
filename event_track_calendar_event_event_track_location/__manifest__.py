@@ -7,23 +7,21 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",    
+    "website": "https://github.com/elabore-coop/event-tools",
     "category": "",
-    'summary': 'Link event tracks locations to calendar event',
-    'description': """
+    "summary": "Link event tracks locations to calendar event",
+    "description": """
 Link event tracks locations to calendar event
 ----------------------------------------------------
 * Add Partner field on event track location
 * Add partner "location" to calendar event
-* Update calendar event if event track location change (or partner in event track location)
+* Update calendar event if event track location change
+(or partner in event track location)
 * Alert if location is used
 
 
 """,
-    "depends": ["website_event_track","calendar"],
-    "data": [    
-        'views/event_track_location_views.xml', 
-        'views/event_track_views.xml'       
-    ],    
+    "depends": ["website_event_track", "calendar"],
+    "data": ["views/event_track_location_views.xml", "views/event_track_views.xml"],
     "installable": True,
 }

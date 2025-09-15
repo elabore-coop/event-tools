@@ -7,13 +7,11 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",    
+    "website": "https://github.com/elabore-coop/event-tools",
     "category": "",
-    'summary': 'Speaker management in calendar events of event tracks',    
+    "summary": "Speaker management in calendar events of event tracks",
     "depends": ["event_track_calendar_event"],
-    "data": [              
-        "views/event_track_views.xml"  
-    ],    
+    "data": ["views/event_track_views.xml"],
     "installable": True,
-    "auto_install":True
+    "auto_install": True,
 }

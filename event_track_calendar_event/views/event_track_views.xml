@@ -2,7 +2,7 @@
 <odoo>
     <record model="ir.ui.view" id="view_event_track_form_event_track_calendar_event">
         <field name="name">event.track.form.event.track.calendar.event</field>
-        <field name="inherit_id" ref="website_event_track.view_event_track_form" />        
+        <field name="inherit_id" ref="website_event_track.view_event_track_form" />
         <field name="model">event.track</field>
         <field name="arch" type="xml">
             <!--
@@ -11,7 +11,11 @@
             <!-- <field name="date" position="replace" /> -->
             <page name="speaker" position="before">
                 <page name="calendar_events" string="Plages horaires">
-                    <field name="calendar_event_ids" context="{'default_name':name}" colspan="2">                    
+                    <field
+                        name="calendar_event_ids"
+                        context="{'default_name':name}"
+                        colspan="2"
+                    >
                         <tree default_order="start,stop" editable="bottom">
                             <field name="name" string="Name" invisible="1" />
                             <field name="start" string="From" />

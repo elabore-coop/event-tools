@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    
-    <record model="ir.ui.view" id="view_event_registration_form_event_generate_quotation_from_registration">
-        <field name="name">view.event.registration.form.event.generate.quotation.from.registration</field>
-        <field name="model">event.registration</field>        
+
+    <record
+        model="ir.ui.view"
+        id="view_event_registration_form_event_generate_quotation_from_registration"
+    >
+        <field
+            name="name"
+        >view.event.registration.form.event.generate.quotation.from.registration</field>
+        <field name="model">event.registration</field>
         <field name="inherit_id" ref="event_sale.event_registration_ticket_view_form" />
         <field name="arch" type="xml">
             <sheet position="inside">
                 <group name="quotation" string="Financement" colspan="1">
                     <field name="financier_ids" nolabel="1" colspan="2">
                         <tree editable="bottom">
-			    <field name="state" invisible="1"/>
-			    <field name="financier_id" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"/>
-                            <field name="amount" attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}" />
+			    <field name="state" invisible="1" />
+			    <field
+                                name="financier_id"
+                                attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"
+                            />
+                            <field
+                                name="amount"
+                                attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"
+                            />
 			    <field name="terms" />
                             <field name="quotation_id" readonly="True" />
                         </tree>
                     </field>
-                    <button name="generate_quotation" type="object" string="Créer/adapter les devis" colspan="2" />
+                    <button
+                        name="generate_quotation"
+                        type="object"
+                        string="Créer/adapter les devis"
+                        colspan="2"
+                    />
                 </group>
-            </sheet>            
+            </sheet>
         </field>
     </record>
-   
+
 </odoo>

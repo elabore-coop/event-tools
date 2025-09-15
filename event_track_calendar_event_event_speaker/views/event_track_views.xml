@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record model="ir.ui.view" id="view_event_track_form_event_track_calendar_event_event_speaker">
-        <field name="name">event.track.form.event.track.calendar.event.event.speaker</field>
-        <field name="inherit_id" ref="event_track_calendar_event.view_event_track_form_event_track_calendar_event" />        
+    <record
+        model="ir.ui.view"
+        id="view_event_track_form_event_track_calendar_event_event_speaker"
+    >
+        <field
+            name="name"
+        >event.track.form.event.track.calendar.event.event.speaker</field>
+        <field
+            name="inherit_id"
+            ref="event_track_calendar_event.view_event_track_form_event_track_calendar_event"
+        />
         <field name="model">event.track</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='calendar_event_ids']/tree/field[@name='description']" position="after">
-                <field name="speaker_ids" widget="many2many_tags"/>
+            <xpath
+                expr="//field[@name='calendar_event_ids']/tree/field[@name='description']"
+                position="after"
+            >
+                <field name="speaker_ids" widget="many2many_tags" />
             </xpath>
 
             <!-- <xpath expr="//field[@name='calendar_event_ids']/form//field[@name='description']" position="after">
                 <field name="speaker_ids" />
             </xpath> -->
-            
+
         </field>
     </record>
 </odoo>
