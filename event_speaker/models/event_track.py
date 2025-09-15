@@ -6,5 +6,5 @@ class EventTrack(models.Model):
     _inherit = "event.track"
 
     speaker_ids = fields.Many2many(
-        'res.partner', string="Speakers", domain="[('is_company','=',False)]"
+        "res.partner", string="Speakers", domain="[('is_company','=',False)]"
     )

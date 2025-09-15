@@ -5,19 +5,17 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",    
+    "website": "https://github.com/elabore-coop/event-tools",
     "category": "",
-    'summary': 'Replace date of event track with list of calendar events',
-    'description': """
+    "summary": "Replace date of event track with list of calendar events",
+    "description": """
 Replace date of event track with list of calendar events
 ----------------------------------------------------
 * Create calendar events on event track form
 * Sync calendar event attendees with event track registration
 
 """,
-    "depends": ["website_event_track","calendar"],
-    "data": [     
-        "views/event_track_views.xml"           
-    ],    
+    "depends": ["website_event_track", "calendar"],
+    "data": ["views/event_track_views.xml"],
     "installable": True,
 }

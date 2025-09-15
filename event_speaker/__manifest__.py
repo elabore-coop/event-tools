@@ -5,12 +5,12 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Elabore",
-    "website": "https://www.elabore.coop",
-    'summary': 'Not usefull anymore for CTL',
+    "website": "https://github.com/elabore-coop/event-tools",
+    "summary": "Not usefull anymore for CTL",
     "category": "",
     "depends": ["website_event_track"],
-    "data": [        
-        'views/event_track_views.xml',         
-    ],    
+    "data": [
+        "views/event_track_views.xml",
+    ],
     "installable": True,
 }
