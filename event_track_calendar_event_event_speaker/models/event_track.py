@@ -6,10 +6,10 @@ class EventTrack(models.Model):
     _inherit = "event.track"
 
     speaker_ids = fields.Many2many(
-        "res.partner", string="Intervenants", compute="compute_speaker_ids"
+        "res.partner", string="Intervenants", compute="_compute_speaker_ids"
     )
 
-    def compute_speaker_ids(self):
+    def _compute_speaker_ids(self):
         """
         Set speaker_ids as concat of all speakers of all events.
         """
