@@ -31,7 +31,8 @@ class EventTrack(models.Model):
         Return default values of calendar events.
         """
         return {
-            # due to google calendar unexpected notifications, for the moment we disable attendees of calendar event
+            # due to google calendar unexpected notifications, for the moment we
+            # disable attendees of calendar event
             # uncomment following line to re-enable
             #'partner_ids':[Command.set(self.get_calendar_event_partner_value())],
             "partner_ids": [Command.set([])],

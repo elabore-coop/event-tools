@@ -6,7 +6,10 @@ class MailTemplate(models.Model):
 
     event_attachment_name_prefix = fields.Char(
         "Attachment name prefix",
-        help="If there is an attachment in event registration, or in event, with a name that starts with this name, it will be attached to the mail.",
+        help="""
+            If there is an attachment in event registration, or in event,
+            with a name that starts with this name, it will be attached to the mail.
+        """,
     )
 
     def generate_email(self, res_ids, fields):
@@ -18,10 +21,9 @@ class MailTemplate(models.Model):
             res_ids = [res_ids]
             multi_mode = False
 
-        for lang, (template, template_res_ids) in self._classify_per_lang(
-            res_ids
-        ).items():
-            # add reports attached to event.registration or event.event from attachment name
+        for _, (template, template_res_ids) in self._classify_per_lang(res_ids).items():
+            # add reports attached to event.registration or event.event from
+            # attachment name
             if template.event_attachment_name_prefix:
                 for res_id in template_res_ids:
                     event_registration = self.env["event.registration"].browse(res_id)

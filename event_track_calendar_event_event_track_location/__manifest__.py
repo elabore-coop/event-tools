@@ -15,7 +15,8 @@ Link event tracks locations to calendar event
 ----------------------------------------------------
 * Add Partner field on event track location
 * Add partner "location" to calendar event
-* Update calendar event if event track location change (or partner in event track location)
+* Update calendar event if event track location change
+(or partner in event track location)
 * Alert if location is used
 
 

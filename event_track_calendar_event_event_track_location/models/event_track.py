@@ -6,8 +6,12 @@ from odoo.tools import format_date
 class EventTrack(models.Model):
     _inherit = "event.track"
 
-    location_already_in_use = fields.Boolean("Location already in use", compute="_compute_location_already_in_use")
-    location_already_in_use_message = fields.Text(compute="_compute_location_already_in_use")
+    location_already_in_use = fields.Boolean(
+        "Location already in use", compute="_compute_location_already_in_use"
+    )
+    location_already_in_use_message = fields.Text(
+        compute="_compute_location_already_in_use"
+    )
 
     @api.depends("date", "duration", "location_id")
     def _compute_location_already_in_use(self):
@@ -19,7 +23,8 @@ class EventTrack(models.Model):
 
             for calendar_event in track.calendar_event_ids:
                 if track.location_id and calendar_event.start:
-                    # search if other calendar event exists for same day on same location
+                    # search if other calendar event exists for same day on
+                    # same location
                     search_other_calendar_events = [
                         ("event_track_id.location_id", "=", track.location_id.id),
                         ("start", ">=", calendar_event.start.replace(hour=0, minute=0)),
@@ -32,14 +37,22 @@ class EventTrack(models.Model):
 
                     # search only on other event tracks
                     if track.id or track.id.origin:
-                        search_other_calendar_events.append(("event_track_id", "!=", track.id or track.id.origin))
+                        search_other_calendar_events.append(
+                            ("event_track_id", "!=", track.id or track.id.origin)
+                        )
 
                     # search calendar events not already founded
                     if already_found_other_calendar_event_ids:
-                        search_other_calendar_events.append(("id", "not in", already_found_other_calendar_event_ids))
+                        search_other_calendar_events.append(
+                            ("id", "not in", already_found_other_calendar_event_ids)
+                        )
 
-                    other_calendar_events = self.env["calendar.event"].search(search_other_calendar_events)
-                    already_found_other_calendar_event_ids.extend(other_calendar_events.ids)
+                    other_calendar_events = self.env["calendar.event"].search(
+                        search_other_calendar_events
+                    )
+                    already_found_other_calendar_event_ids.extend(
+                        other_calendar_events.ids
+                    )
 
                     if other_calendar_events:
                         location_already_in_use = True
